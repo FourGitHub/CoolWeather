@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/append_now_layout"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/feel_tmp_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textColor="#fff"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/pop_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="35dp"
+            android:textColor="#fff"
+            android:textSize="12sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.coolweather.android.sunriseView.SunriseView
+            android:id="@+id/sun"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+            <TextView
+                android:id="@+id/sunrise_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日出 06:10"
+                android:textColor="#fff"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/sunset_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="15dp"
+                android:text="日落 19:50"
+                android:textColor="#fff"
+                android:textSize="10sp"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
