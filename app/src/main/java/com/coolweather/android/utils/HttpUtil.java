@@ -15,7 +15,7 @@ public class HttpUtil {
     private static final String TAG = "HttpUtil";
 
     /**
-     * 请求方式 : GET
+     * Android原生方式发起网络请求，请求方式 : GET
      *
      * @param address  请求地址
      * @param listener 自定义的回调接口，用于向主线程返回请求结果

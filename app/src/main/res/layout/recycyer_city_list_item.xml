@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_cityname"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="15dp"
+    android:textColor="#515151"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:gravity="left|center"
+    android:text="南岸，重庆，中国"/>
+

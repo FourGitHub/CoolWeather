@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/bg_search_bar"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <RelativeLayout
+        android:id="@+id/hide_when_searching"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_toStartOf="@id/indicator"
+            android:layout_toLeftOf="@id/indicator"
+            android:src="@drawable/ic_search_at_bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/indicator"
+            android:layout_toRightOf="@id/indicator"
+            android:text="城市"
+            android:textColor="#8e8e8e"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edt_search_city"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:maxLength="14"
+        android:textColor="#3688ff"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:textCursorDrawable="@drawable/custom_search_cursor"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:text="搜索地名"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/img_cancle_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cancle_input"
+        android:layout_gravity="right|center"
+        android:padding="7dp"
+        android:layout_marginRight="3dp"/>
+
+</FrameLayout>

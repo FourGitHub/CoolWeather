@@ -163,7 +163,7 @@ public class WeatherActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString = prefs.getString("weather", null);
         if (weatherString != null) {
-            // 有缓存时直接解析天气数据
+            // 有缓存时直接解析天气数据，并取出weatherId以便发送请求刷新天气信息
             MyWeatherBean weather = PCCUtil.handleWeatherResponse(weatherString);
             mWeatherId = weather.getBasic().getCid();
             showWeatherInfo(weather);
@@ -179,8 +179,7 @@ public class WeatherActivity extends AppCompatActivity {
         // 检测有无图片链接缓存。
         String bingPicUrl = prefs.getString("bing_pic_url", null);
         if (bingPicUrl != null) {
-            Glide.with(this).load(bingPicUrl).placeholder(R.drawable.place_holder)
-                    .error(R.drawable.place_holder).into(bingPicImg);
+            Glide.with(this).load(bingPicUrl).placeholder(R.drawable.place_holder).into(bingPicImg);
         } else {
             loadBingPic();
         }
@@ -264,6 +263,9 @@ public class WeatherActivity extends AppCompatActivity {
             HttpUtil.sendHttpUrlConnectionResquest(requestBingPic, new HttpCallbackListener() {
                 @Override
                 public void onFailure(Exception e) {
+                    runOnUiThread(() -> Glide.with(WeatherActivity.this)
+                                             .load(R.drawable.place_holder)
+                                             .into(bingPicImg));
                     e.printStackTrace();
                 }
 
@@ -277,12 +279,17 @@ public class WeatherActivity extends AppCompatActivity {
                             .getDefaultSharedPreferences(WeatherActivity.this).edit();
                     editor.putString("bing_pic_url", bingPicUr);
                     editor.apply();
-                    runOnUiThread(() -> Glide.with(WeatherActivity.this).load(bingPicUr)
-                            .placeholder(R.drawable.place_holder).error(R.drawable.place_holder)
-                            .into(bingPicImg));
+                    Log.i(TAG, "onResponse: --->> biyingurl = " + bingPicUr);
+                    runOnUiThread(() -> Glide.with(WeatherActivity.this)
+                                             .load(bingPicUr)
+                                             .placeholder(R.drawable.place_holder)
+                                             .error(R.drawable.place_holder)
+                                             .into(bingPicImg));
                 }
             });
         } else {
+            Glide.with(WeatherActivity.this).load(R.drawable.place_holder)
+                 .into(bingPicImg);
             ToastUtil.showToast(getApplicationContext(), "请检查您的网络连接...", Toast.LENGTH_SHORT);
 
         }
@@ -327,7 +334,7 @@ public class WeatherActivity extends AppCompatActivity {
         for (MyWeatherBean.DailyForecastBean forecast : weather.getDaily_forecast()) {
 
             View view = LayoutInflater.from(this)
-                    .inflate(R.layout.forecast_item, forecastLayout, false);
+                                      .inflate(R.layout.forecast_item, forecastLayout, false);
             TextView dateText = view.findViewById(R.id.date_text);
             TextView infoText = view.findViewById(R.id.info_text);
             TextView maxText = view.findViewById(R.id.max_text);
@@ -343,7 +350,7 @@ public class WeatherActivity extends AppCompatActivity {
         popText.setText("降水概率  " + weather.getHourly().get(0).getPop() + "%");
         for (MyWeatherBean.HourlyBean hourly : weather.getHourly()) {
             View view = LayoutInflater.from(this)
-                    .inflate(R.layout.hourly_item, hourlyLayout, false);
+                                      .inflate(R.layout.hourly_item, hourlyLayout, false);
             TextView hourlyTimeText = view.findViewById(R.id.hourly_time_text);
             ImageView hourlyWeatherIcon = view.findViewById(R.id.hourly_weather_icon);
             TextView hourlyWeatherConditionText = view
@@ -540,4 +547,5 @@ public class WeatherActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
 }

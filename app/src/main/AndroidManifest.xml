@@ -44,6 +44,15 @@
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
             tools:targetApi="n">
+
+        </activity>
+
+        <activity android:name=".View.TestActivity">
+
+        </activity>
+
+        <activity android:name=".View.RxActivity">
+
         </activity>
     </application>
 

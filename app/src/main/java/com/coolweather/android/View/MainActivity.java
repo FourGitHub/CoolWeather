@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        // 如果有缓存的天气信息，就将它作为天气首页展示
         if (prefs.getString("weather", null) != null) {
             Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);

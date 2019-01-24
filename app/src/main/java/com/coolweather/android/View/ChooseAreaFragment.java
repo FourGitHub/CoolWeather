@@ -91,7 +91,7 @@ public class ChooseAreaFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.choose_area, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_area, container, false);
         titleText =  view.findViewById(R.id.title_text);
         backButton = (Button) view.findViewById(R.id.back_button);
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_frg);
