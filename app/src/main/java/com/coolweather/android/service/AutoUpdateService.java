@@ -9,10 +9,18 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
-import com.coolweather.android.gson.MyWeatherBean;
+import com.coolweather.android.View.APP;
+import com.coolweather.android.entity.CityWeaInfo;
+import com.coolweather.android.entity.WeatherEntity;
 import com.coolweather.android.utils.HttpCallbackListener;
 import com.coolweather.android.utils.HttpUtil;
-import com.coolweather.android.utils.PCCUtil;
+import com.coolweather.android.utils.HttpWeatherEntity;
+import com.google.gson.Gson;
+
+import java.util.List;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * 这是一个启动服务，没有和Activity绑定
@@ -30,13 +38,11 @@ public class AutoUpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                updateWeather();
-                updateBingPic();
-            }
-        }).start();
+        Thread update = new Thread(() -> {
+            updateWeather();
+            updateBingPic();
+        });
+        update.start();
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         int twoHours = 2 * 60 * 60 * 1000; // 这是2小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + twoHours;
@@ -51,44 +57,54 @@ public class AutoUpdateService extends Service {
      * 更新天气信息。
      */
     private void updateWeather() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String weatherString = prefs.getString("weather", null);
-        if (weatherString != null) {
-            // 有缓存时,先从中获取weatherId,再构造请求Url,发送请求刷新天气数据
-            MyWeatherBean weather = PCCUtil.handleWeatherResponse(weatherString);
-            String weatherId = weather.getBasic().getCid();
-            String weatherUrl = "https://free-api.heweather.net/s6/weather?" +
-                    "location=" + weatherId + "&" +
-                    "key=bc0418b57b2d4918819d3974ac1285d9" + "&" +
-                    "lang=zh" + "&" +
-                    "unit=m";
+        List<CityWeaInfo> cityWeaInfos = APP.getDaoSession().loadAll(CityWeaInfo.class);
+        // 这里没有检查网络是否可用，我怕从doze机制转换过来的时候，网络不及时导致更新失败
+        if (cityWeaInfos.size() > 0) {
+            Gson gson = new Gson();
+            for (int i = 0; i < cityWeaInfos.size(); i++) {
+                String cid = cityWeaInfos.get(i).getCid();
+                Observer<WeatherEntity> observer = new Observer<WeatherEntity>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-            HttpUtil.sendHttpUrlConnectionResquest(weatherUrl, new HttpCallbackListener() {
-                @Override
-                public void onFailure(Exception e) {
-                    e.printStackTrace();
-                }
-
-                @Override
-                public void onResponse(final String response) {
-                    MyWeatherBean weather = PCCUtil.handleWeatherResponse(response);
-                    if (weather != null && "ok".equals(weather.getStatus())) {
-                        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(AutoUpdateService.this).edit();
-                        editor.putString("weather", response);
-                        editor.apply();
                     }
-                }
-            });
+
+                    @Override
+                    public void onNext(WeatherEntity weatherEntity) {
+                        if (weatherEntity.getHeWeather6()
+                                         .get(0)
+                                         .getStatus()
+                                         .toLowerCase()
+                                         .equals("ok")) {
+                            String weatherInfoJSON = gson.toJson(weatherEntity);
+                            String mCid = weatherEntity.getHeWeather6().get(0).getBasic().getCid();
+                            CityWeaInfo weather = new CityWeaInfo(null, mCid, weatherInfoJSON);
+                            APP.getDaoSession().insertOrReplace(weather);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                };
+                HttpWeatherEntity.getInstance().getWeatherEntity(observer, cid);
+            }
 
         }
     }
+
 
     /**
      * 更新必应每日一图
      */
     private void updateBingPic() {
         String requestBingPic = "http://guolin.tech/api/bing_pic";
-        if (HttpUtil.networkStatus(getApplicationContext()))
+        if (HttpUtil.isNetworkEnable(getApplicationContext()))
             HttpUtil.sendHttpUrlConnectionResquest(requestBingPic, new HttpCallbackListener() {
                 @Override
                 public void onFailure(Exception e) {
@@ -98,7 +114,7 @@ public class AutoUpdateService extends Service {
                 @Override
                 public void onResponse(final String response) {
                     SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(AutoUpdateService.this).edit();
-                    editor.putString("bing_pic", response);
+                    editor.putString("bing_pic_url", response);
                     editor.apply();
                 }
             });

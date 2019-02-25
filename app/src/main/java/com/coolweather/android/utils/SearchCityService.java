@@ -1,6 +1,6 @@
 package com.coolweather.android.utils;
 
-import com.coolweather.android.gson.SearchedCities;
+import com.coolweather.android.entity.SearchedCities;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -20,10 +20,4 @@ public interface SearchCityService {
     @GET("find")
     Observable<SearchedCities> getSearchedCity(@Query("location") String location, @Query("key") String key, @Query("group") String group, @Query("number") int number);
 
-    /**
-     * https://search.heweather.net/find?location=106.60,29.53&key=e70302717c5d493499c49dd2ee6b8de2&group=cn
-     * 根据当前经纬度进行搜索,注意：经度在前纬度在后
-     */
-    @GET("find")
-    Observable<SearchedCities> getCurrentCity(@Query("location") String location,@Query("key") String key,@Query("group") String group);
 }

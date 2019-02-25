@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.coolweather.android.View.RxActivity">
 
+    <include layout="@layout/title"
+        android:id="@+id/rx_title"/>
+
     <Button
         android:id="@+id/btn_send"
         android:layout_width="match_parent"
@@ -20,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_send"
+        android:layout_below="@id/rx_title"
         android:padding="5dp"
         android:textSize="16sp"
         android:text="hello world!"/>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/indicator_2"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/bg_vertical_line" />
+
+
+    <TextView
+        android:id="@+id/degree_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/indicator_2"
+        android:layout_marginRight="20dp"
+        android:text="22℃"
+        android:textColor="#fff"
+        android:textSize="60sp" />
+
+    <TextView
+        android:id="@+id/weather_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/indicator_2"
+        android:text="晴"
+        android:textColor="#fff"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/feel_tmp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/degree_text"
+        android:layout_alignLeft="@id/degree_text"
+        android:layout_marginTop="30dp"
+        android:text="体感温度 "
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/pop_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/degree_text"
+        android:layout_alignLeft="@id/weather_info_text"
+        android:layout_marginTop="30dp"
+        android:text="降水概率 "
+        android:textColor="#fff" />
+
+
+
+</RelativeLayout>

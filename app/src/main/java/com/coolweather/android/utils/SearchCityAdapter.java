@@ -7,21 +7,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.coolweather.android.R;
-import com.coolweather.android.gson.SearchedCities;
+import com.coolweather.learn.R;
+import com.coolweather.android.View.SearchActivity;
+import com.coolweather.android.entity.SearchedCities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Create on 2019/01/23
  *
  * @author Four
- * @description
+ * @description 模糊搜索的时候，返回的实体
  */
 public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.ViewHolder> {
 
     List<SearchedCities.HeWeather6Bean.BasicBean> mCities;
+    private SearchActivity mContext;
+
+    public SearchCityAdapter(SearchActivity context) {
+        mContext = context;
+    }
 
     public void setmCities(List<SearchedCities.HeWeather6Bean.BasicBean> mCities) {
         this.mCities = mCities;
@@ -39,8 +44,9 @@ public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SearchedCities.HeWeather6Bean.BasicBean city = mCities.get(position);
-        String cityName = city.getLocation() + ", " + city.getAdmin_area() + ", 中国";
+        String cityName = city.getLocation() + ", " + city.getAdmin_area() + ", " + city.getCnty();
         holder.tvCityName.setText(cityName);
+        holder.item.setOnClickListener(v -> mContext.updateWeatherActivity(city.getCid()));
     }
 
     @Override
@@ -50,10 +56,14 @@ public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.Vi
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvCityName;
+        View item;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            item = itemView;
             tvCityName = itemView.findViewById(R.id.tv_cityname);
         }
     }
+
+
 }

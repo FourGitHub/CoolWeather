@@ -5,40 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
     android:orientation="horizontal">
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/wind_sc_text"
-            android:textColor="#fff"
-            android:layout_margin="6dp"
-            android:textSize="12sp"
-            android:text="风力"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/wind_dir_text"
-            android:textColor="#fff"
-            android:layout_margin="6dp"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/wind_spd_text"
-            android:textColor="#fff"
-            android:layout_margin="6dp"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="150dp"
@@ -46,13 +12,14 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/weather_info_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:textColor="#fff"
-            android:textSize="20sp"/>
+        <!--<TextView-->
+        <!--android:id="@+id/weather_info_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="晴"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="20sp"/>-->
 
         <TextView
             android:id="@+id/degree_text"
@@ -60,65 +27,109 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|center"
             android:textColor="#fff"
+            android:text="22℃"
+            android:layout_marginRight="15dp"
             android:textSize="60sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_press"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="15dp"/>
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/icon_press"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--android:layout_marginRight="15dp"/>-->
 
-                <TextView
-                    android:id="@+id/press_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="7dp"
-                    android:gravity="center"
-                    android:text="1008hpa"
-                    android:textColor="#fff"
-                    android:textSize="10sp"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/press_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="right"-->
+                    <!--android:layout_marginRight="7dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="1008hpa"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="10sp"/>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_humidity"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="10dp"/>
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/icon_humidity"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--android:layout_marginRight="10dp"/>-->
 
-                <TextView
-                    android:id="@+id/humidity_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:text="75"
-                    android:textColor="#fff"
-                    android:textSize="10sp"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/humidity_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="right"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="75"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="10sp"/>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/weather_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="晴"
+            android:layout_gravity="center_vertical"
+            android:textColor="#fff"
+            android:layout_marginLeft="15dp"
+            android:textSize="36sp"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/wind_sc_text"-->
+            <!--android:textColor="#fff"-->
+            <!--android:layout_margin="6dp"-->
+            <!--android:textSize="12sp"-->
+            <!--android:text="风力"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/wind_dir_text"-->
+            <!--android:textColor="#fff"-->
+            <!--android:layout_margin="6dp"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/wind_spd_text"-->
+            <!--android:textColor="#fff"-->
+            <!--android:layout_margin="6dp"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

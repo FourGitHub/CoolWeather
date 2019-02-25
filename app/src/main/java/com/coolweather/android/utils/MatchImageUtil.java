@@ -1,9 +1,9 @@
 package com.coolweather.android.utils;
 
-import com.coolweather.android.R;
+import com.coolweather.learn.R;
 
 /**
- * Created by Administrator on 2018/3/9 0009.
+ * Created by Four on 2018/3/9 0009.
  */
 
 public class MatchImageUtil {

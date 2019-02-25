@@ -1,6 +1,6 @@
 package com.coolweather.android.utils;
 
-import com.coolweather.android.gson.MovieEntity;
+import com.coolweather.android.entity.MovieEntity;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -10,7 +10,7 @@ import retrofit2.http.Query;
  * Create on 2019/01/23
  *
  * @author Four
- * @description
+ * @description 练习Retrofit + RxJava + Gson用的, 与本项目逻辑无关！
  */
 public interface MovieService {
 

@@ -1,10 +1,8 @@
 package com.coolweather.android.utils;
 
 import android.util.Log;
-import android.widget.GridLayout;
 
-import com.bumptech.glide.util.LogTime;
-import com.coolweather.android.gson.SearchedCities;
+import com.coolweather.android.entity.SearchedCities;
 
 import java.util.concurrent.TimeUnit;
 

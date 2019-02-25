@@ -3,6 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="str_about_pos">1、默认对您的设备进行粗略的定位，为了获取更好的定位精度，建议您开启GPS。\n\n2、使用GPS时请确保您正处于室外等开阔的位置。\n\n3、默认定位方式的定位速度可能会比较慢。</string>
+    <string name="str_about_pos">1、默认对您的设备进行粗略的定位，为了获取更好的定位精度，建议您开启GPS。\n\n2、使用GPS时，为了确保能够收到GPS信号，请您尽量位于室外等开阔的地方。\n\n3、默认定位方式的定位速度可能会比较慢。</string>
 </resources>
 

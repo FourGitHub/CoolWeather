@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/bing_pic_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
+
+    <include
+        android:id="@+id/indicator_3"
+        layout="@layout/title" />
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/indicator_3">
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ScrollView
+            <android.support.v4.widget.NestedScrollView
                 android:id="@+id/weather_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fillViewport="true"
                 android:overScrollMode="never"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:orientation="vertical">
 
-                    <include layout="@layout/title"/>
+                    <!--这个View的作用是把下面的布局往下推，我试过其他方式，比如给NestedScrollView设置paddingBottom,
+                        但是这样会使页面加载不全，我也不知道为什么，所以就用此下策！-->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
 
-                    <include layout="@layout/now"/>
+                    <include layout="@layout/now_1" />
 
-                    <include layout="@layout/hourly"/>
+                    <include layout="@layout/hourly" />
 
-                    <include layout="@layout/sun_moon_animation"/>
+                    <include layout="@layout/sun_moon_animation" />
 
-                    <include layout="@layout/forecast"/>
+                    <include layout="@layout/forecast" />
 
-                    <include layout="@layout/lifestyle"/>
+                    <include layout="@layout/lifestyle_1" />
 
                 </LinearLayout>
 
-            </ScrollView>
+            </android.support.v4.widget.NestedScrollView>
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
@@ -57,9 +66,8 @@
             android:name="com.coolweather.android.View.ChooseAreaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            />
+            android:layout_gravity="start" />
 
     </android.support.v4.widget.DrawerLayout>
 
-</FrameLayout>
+</RelativeLayout>

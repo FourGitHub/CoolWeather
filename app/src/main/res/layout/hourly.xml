@@ -20,7 +20,8 @@
             android:layout_margin="15dp"
             android:layout_weight="1"
             app:cardBackgroundColor="#8000"
-            app:cardCornerRadius="5dp">
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -29,14 +30,14 @@
 
                 <TextView
                     android:id="@+id/hourly_time_text"
-                    android:layout_width="45dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
                     android:gravity="center"
                     android:text="短时预报"
                     android:textColor="#fff"
-                    android:textSize="10sp"/>
+                    android:textSize="12sp"/>
 
                 <ImageView
                     android:id="@+id/hourly_weather_icon"
@@ -55,7 +56,7 @@
                     android:gravity="center"
                     android:text="天气情况"
                     android:textColor="#fff"
-                    android:textSize="10sp"/>
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/hourly_tmp_text"
@@ -66,7 +67,7 @@
                     android:gravity="center"
                     android:text="温度"
                     android:textColor="#fff"
-                    android:textSize="10sp"/>
+                    android:textSize="12sp"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -74,9 +75,8 @@
         <LinearLayout
             android:id="@+id/hourly_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
 
     </LinearLayout>
 

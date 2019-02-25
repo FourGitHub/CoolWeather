@@ -75,11 +75,10 @@ public class HttpUtil {
         }).start();
     }
 
-
     /**
      * @return 发起网络请求之前检查网络状态是否可用
      */
-    public static boolean networkStatus(Context context) {
+    public static boolean isNetworkEnable(Context context) {
         ConnectivityManager manager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();

@@ -2,16 +2,19 @@ package com.coolweather.android.utils;
 
 import android.text.TextUtils;
 
-import com.coolweather.android.db.City;
-import com.coolweather.android.db.County;
-import com.coolweather.android.db.Province;
-import com.coolweather.android.gson.MyWeatherBean;
+import com.coolweather.android.entity.City;
+import com.coolweather.android.entity.County;
+import com.coolweather.android.entity.Province;
+import com.coolweather.android.entity.MyWeatherBean;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * PCC : Province、City、County
+ */
 public class PCCUtil {
 
     /**
