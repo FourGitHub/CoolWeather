@@ -7,9 +7,9 @@
     <version value="5"/>
 
     <list>
-        <mapping class="com.coolweather.android.entity.Province"/>
-        <mapping class="com.coolweather.android.entity.City"/>
-        <mapping class="com.coolweather.android.entity.County"/>
+        <mapping class="com.fourweather.learn.entity.Province"/>
+        <mapping class="com.fourweather.learn.entity.City"/>
+        <mapping class="com.fourweather.learn.entity.County"/>
     </list>
 
 </litepal>

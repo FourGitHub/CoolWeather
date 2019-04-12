@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.coolweather.android">
+    package="com.fourweather.learn">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,14 +11,14 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name="com.coolweather.android.View.APP"
+        android:name="com.fourweather.learn.View.APP"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/StartTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.coolweather.android.View.WeatherActivity"
+            android:name="com.fourweather.learn.View.WeatherActivity"
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
             tools:targetApi="n">
@@ -26,19 +26,19 @@
         </activity>
 
         <service
-            android:name="com.coolweather.android.service.AutoUpdateService"
+            android:name="com.fourweather.learn.service.AutoUpdateService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name="com.coolweather.android.View.ShowLifestyleActivity"
+            android:name="com.fourweather.learn.View.ShowLifestyleActivity"
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             tools:targetApi="n"/>
-        <activity android:name="com.coolweather.android.View.SearchActivity" />
-        <activity android:name="com.coolweather.android.View.RxActivity" />
-        <activity android:name="com.coolweather.android.View.WeatherActivity1"
+        <activity android:name="com.fourweather.learn.View.SearchActivity" />
+        <activity android:name="com.fourweather.learn.View.RxActivity" />
+        <activity android:name="com.fourweather.learn.View.WeatherActivity1"
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
             tools:targetApi="n">
@@ -48,7 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.coolweather.android.View.CityManageActivity">
+        <activity android:name="com.fourweather.learn.View.CityManageActivity">
 
         </activity>
     </application>

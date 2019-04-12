@@ -5,7 +5,7 @@ apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.four.coolweather"
+        applicationId "com.fourweather.learn"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
@@ -30,7 +30,7 @@ android {
 
     greendao {
         schemaVersion 3 // 数据库版本号
-        daoPackage 'com.coolweather.android.greendao.db' // 设置DaoMaster、DaoSession、Dao 包名
+        daoPackage 'com.fourweather.learn.greendao.db' // 设置DaoMaster、DaoSession、Dao 包名
         targetGenDir 'src/main/java' //设置DaoMaster、DaoSession、Dao目录
         generateTests false //设置为true以自动生成单元测试。
         targetGenDirTests 'src/main/java' //存储生成的单元测试的基本目录。默认为 src/androidTest/java。
