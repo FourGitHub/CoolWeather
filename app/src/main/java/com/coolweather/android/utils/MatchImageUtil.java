@@ -1,6 +1,6 @@
 package com.coolweather.android.utils;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 
 /**
  * Created by Four on 2018/3/9 0009.

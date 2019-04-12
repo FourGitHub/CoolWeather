@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.entity.BiYing;
 import com.coolweather.android.entity.CityWeaInfo;
 import com.coolweather.android.entity.WeatherEntity;
@@ -62,11 +62,14 @@ public class WeatherActivity1 extends AppCompatActivity {
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
+    PopupWindow popupWindow;
+
     private static final int SEARCH_ACTIVITY_REQUEST_CODE = 1;
     private static final int MANAGE_ACTIVITY_REQUEST_CODE = 2;
     private List<WeatherFragment> mWeatherFragmentList = new ArrayList<>();
     private WeaPagerAdapter mAdapter = null;
     private int curFrgPos;
+
     public int getCurFrgPos() {
         return curFrgPos;
     }
@@ -87,6 +90,7 @@ public class WeatherActivity1 extends AppCompatActivity {
 
     private void init() {
         loadBingPic();
+        initPopupWindow();
         setupWeatherFragmentList();
         refreshIndicator();
         mAdapter = new WeaPagerAdapter(getSupportFragmentManager(), mWeatherFragmentList);
@@ -151,6 +155,42 @@ public class WeatherActivity1 extends AppCompatActivity {
         titleUpdateTime.setText("最近更新 " + updateTime);
     }
 
+    private void initPopupWindow() {
+        /* 加载布局 */
+        View view = LayoutInflater.from(this).inflate(R.layout.custom_pop_window, null);
+        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
+        TextView tvCitySearch = view.findViewById(R.id.tv_city_search);
+        TextView tvCityManage = view.findViewById(R.id.tv_city_manage);
+        TextView tvWeatherShare = view.findViewById(R.id.tv_weather_share);
+
+        /* 构造PopupWindow */
+        popupWindow = new PopupWindow();
+
+        /* 配置PopupWindow */
+        popupWindow.setWidth(DensityUtil.dip2px(this, 120));
+        popupWindow.setHeight(DensityUtil.dip2px(this, 150));
+        popupWindow.setContentView(view);
+
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
+        popupWindow.setAnimationStyle(R.style.animPopWin);
+        tvFastCheckout.setOnClickListener(v -> {
+            drawerLayout.openDrawer(Gravity.LEFT);
+            popupWindow.dismiss();
+        });
+
+        tvCitySearch.setOnClickListener(v -> {
+            startActivityForResult(new Intent(WeatherActivity1.this, SearchActivity.class), SEARCH_ACTIVITY_REQUEST_CODE);
+            popupWindow.dismiss();
+        });
+
+        tvCityManage.setOnClickListener(v -> {
+            startActivityForResult(new Intent(WeatherActivity1.this, CityManageActivity.class), MANAGE_ACTIVITY_REQUEST_CODE);
+            popupWindow.dismiss();
+        });
+    }
+
     private void setupWeatherFragmentList() {
         List<CityWeaInfo> weaInfoList = APP.getDaoSession().loadAll(CityWeaInfo.class);
         WeatherFragment.setCityWeaInfos(weaInfoList);
@@ -166,39 +206,17 @@ public class WeatherActivity1 extends AppCompatActivity {
 
     @OnClick(R.id.img_nav)
     public void onViewClicked() {
-        showPopWindow();
+        if (popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            showPopWindow();
+        }
     }
 
     private void showPopWindow() {
-        View view = LayoutInflater.from(this).inflate(R.layout.custom_pop_window, null);
-        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
-        TextView tvCitySearch = view.findViewById(R.id.tv_city_search);
-        TextView tvCityManage = view.findViewById(R.id.tv_city_manage);
-        TextView tvWeatherShare = view.findViewById(R.id.tv_weather_share);
-        PopupWindow popupWindow = new PopupWindow();
-        popupWindow.setWidth(DensityUtil.dip2px(this, 120));
-        popupWindow.setHeight(DensityUtil.dip2px(this, 150));
-        popupWindow.setContentView(view);
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setFocusable(true);
-        popupWindow.setTouchable(true);
-        popupWindow.setAnimationStyle(R.style.animPopWin);
-        popupWindow.showAsDropDown(imgNav, -DensityUtil.dip2px(this, 100), 0);
-
-        tvFastCheckout.setOnClickListener(v -> {
-            drawerLayout.openDrawer(Gravity.LEFT);
-            popupWindow.dismiss();
-        });
-
-        tvCitySearch.setOnClickListener(v -> {
-            startActivityForResult(new Intent(WeatherActivity1.this, SearchActivity.class), SEARCH_ACTIVITY_REQUEST_CODE);
-            popupWindow.dismiss();
-        });
-
-        tvCityManage.setOnClickListener(v -> {
-            startActivityForResult(new Intent(WeatherActivity1.this,CityManageActivity.class), MANAGE_ACTIVITY_REQUEST_CODE);
-            popupWindow.dismiss();
-        });
+        if (popupWindow != null) {
+            popupWindow.showAsDropDown(imgNav, -DensityUtil.dip2px(this, 100), 0);
+        }
     }
 
     private void loadBingPic() {
@@ -324,7 +342,7 @@ public class WeatherActivity1 extends AppCompatActivity {
             return;
         }
         dotLayout.setVisibility(View.VISIBLE);
-        List<View> dotViewsList = new ArrayList<>();
+        List<ImageView> dotViewsList = new ArrayList<>();
         dotLayout.removeAllViews();
         int size = mWeatherFragmentList.size();
         for (int count = 0; count < size; count++) {
@@ -339,10 +357,10 @@ public class WeatherActivity1 extends AppCompatActivity {
         }
         for (int pos = 0; pos < size; pos++) {
             if (pos != curFrgPos) {
-                dotViewsList.get(pos).setBackgroundResource(R.drawable.ic_dot_unselected);
+                dotViewsList.get(pos).setImageResource(R.drawable.ic_dot_unselected);
                 continue;
             }
-            dotViewsList.get(pos).setBackgroundResource(R.drawable.ic_dot_selected);
+            dotViewsList.get(pos).setImageResource(R.drawable.ic_dot_selected);
         }
 
     }
@@ -355,7 +373,7 @@ public class WeatherActivity1 extends AppCompatActivity {
         titleCity.setText(titleCityName);
     }
 
-    public void refreshUpdateTime(String updateTime,String titleCityName) {
+    public void refreshUpdateTime(String updateTime, String titleCityName) {
         titleUpdateTime.setText("最近更新 " + updateTime);
         titleCity.setText(titleCityName);
     }
@@ -364,7 +382,7 @@ public class WeatherActivity1 extends AppCompatActivity {
      * 从城市管理Activity返回之后，重建mWeatherFragmentList
      * 因为城市管理Activity里用户可能有改变顺序或者删除城市的可能性
      */
-    private void afterManage(){
+    private void afterManage() {
         mWeatherFragmentList.clear();
         setupWeatherFragmentList();
         mAdapter.notifyDataSetChanged();
@@ -375,10 +393,6 @@ public class WeatherActivity1 extends AppCompatActivity {
 
     /**
      * 从SearchActivity选择城市返回后刷新数据库，重建碎片实例
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

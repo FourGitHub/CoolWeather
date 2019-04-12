@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.View.SearchActivity;
 import com.coolweather.android.entity.SearchedCities;
 

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.entity.WeatherEntity;
 
 import java.util.List;

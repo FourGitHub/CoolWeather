@@ -23,7 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.customView.SunriseView;
 import com.coolweather.android.entity.BiYing;
 import com.coolweather.android.entity.CityWeaInfo;

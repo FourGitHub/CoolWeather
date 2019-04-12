@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -28,7 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.entity.SearchedCities;
 import com.coolweather.android.utils.HttpSearchCity;
 import com.coolweather.android.utils.SearchCityAdapter;

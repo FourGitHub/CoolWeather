@@ -12,8 +12,9 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.coolweather.android.R;
 
-import com.coolweather.learn.R;
+
 import com.coolweather.android.entity.MovieEntity;
 import com.coolweather.android.utils.DensityUtil;
 import com.coolweather.android.utils.HttpMovieService;
@@ -84,6 +85,7 @@ public class RxActivity extends AppCompatActivity {
 
             }
         };
+        getSupportFragmentManager();
         HttpMovieService.getInstance()
                         .getTopMovie(observer, 0, 10);
 

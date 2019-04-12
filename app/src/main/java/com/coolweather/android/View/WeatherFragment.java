@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.customView.SunriseView;
 import com.coolweather.android.entity.CityWeaInfo;
 import com.coolweather.android.entity.WeatherEntity;
@@ -113,7 +113,6 @@ public class WeatherFragment extends Fragment {
     private static final String FRG_POS = "frg_pos";
     private static final String DEFAULT_CID = "CN101010100";
     public static final int FLAG_INIT_DEFAULT = -1;
-    private static final int LIFESTYLE_ACTIVITY_REQUEST_CODE = 3;
     private static List<CityWeaInfo> cityWeaInfoList = null;
     private Context mContext = null;
     private WeatherEntity mWeaEntity = null;

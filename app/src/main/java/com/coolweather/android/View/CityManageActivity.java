@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.entity.CityWeaInfo;
 import com.coolweather.android.entity.WeatherEntity;
 import com.coolweather.android.utils.CityManageAdapter;
@@ -98,7 +98,7 @@ public class CityManageActivity extends AppCompatActivity {
                 int fromPosition = viewHolder.getAdapterPosition();
                 int toPosition = target.getAdapterPosition();
                 if (fromPosition < toPosition) {
-                    // 往下滑动
+                    // 往下移动
                     for (int i = fromPosition; i < toPosition; i++) {
                         Collections.swap(weatherEntityList, i, i + 1);
                     }
@@ -134,7 +134,7 @@ public class CityManageActivity extends AppCompatActivity {
             public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
                 super.onSelectedChanged(viewHolder, actionState);
                 if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-                    viewHolder.itemView.setBackgroundColor(Color.parseColor("#f8eab4"));
+                    viewHolder.itemView.setBackgroundColor(Color.parseColor("#aa87cefa"));
                 }
             }
 

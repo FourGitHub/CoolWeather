@@ -16,7 +16,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 
 
 /**

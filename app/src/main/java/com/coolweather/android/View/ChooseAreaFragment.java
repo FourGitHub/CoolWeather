@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.coolweather.learn.R;
+import com.coolweather.android.R;
 import com.coolweather.android.entity.City;
 import com.coolweather.android.entity.County;
 import com.coolweather.android.entity.Province;
