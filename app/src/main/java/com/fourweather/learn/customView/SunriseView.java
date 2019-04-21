@@ -20,8 +20,6 @@ import com.fourweather.learn.R;
 
 
 /**
- * Created by Administrator on 2018/3/2 0002.
- * 还没学到动画，这个动画是github上找的
  * https://github.com/OnlyTerminator/SunriseView.git
  */
 public class SunriseView extends View {

@@ -1,9 +1,6 @@
 package com.fourweather.learn.utils;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +12,9 @@ import com.fourweather.learn.entity.WeatherEntity;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -55,7 +55,7 @@ public class CityManageAdapter extends RecyclerView.Adapter<CityManageAdapter.Vi
         String temMin = weatherEntity.getHeWeather6().get(0).getDaily_forecast().get(0).getTmp_min();
 
         holder.tvManageName.setText(cityName);
-        holder.tvManageWinfo.setText(cityInfo + "  " + temMin + " ~ " + tmpMax + "℃");
+        holder.tvManageWinfo.setText(String.format("%s  %s ~ %s℃", cityInfo, temMin, tmpMax));
         // 拖拽监听
         holder.imgDrag.setOnTouchListener((v, event) -> {
             mItemTouchHelper.startDrag(holder);
@@ -81,4 +81,6 @@ public class CityManageAdapter extends RecyclerView.Adapter<CityManageAdapter.Vi
             ButterKnife.bind(this, view);
         }
     }
+
+
 }

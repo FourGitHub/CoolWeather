@@ -2,14 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/add_city_item"
     android:layout_width="match_parent"
-    android:layout_height="70dp">
+    android:layout_height="30dp"
+    android:layout_marginTop="15dp">
 
     <View
         android:id="@+id/indicator"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="15dp"
         android:layout_width="0dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_toRightOf="@id/indicator"
-        android:text="添加城市"
-        android:textColor="#fff"
-        android:textSize="24dp" />
+        android:text="添加"
+        android:textColor="#bfbfbf"
+        android:textSize="20dp" />
 </RelativeLayout>

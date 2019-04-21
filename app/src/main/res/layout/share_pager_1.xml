@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable = "true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Four 天气"
+                android:textColor="#111"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_1_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="明天"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_1_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="多云"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_1_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:text="20° ~ 25°"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_2_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="4/17"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_2_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="多云"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_2_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:text="20° ~ 25°"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp">
+
+                    <TextView
+                        android:id="@+id/tv_3_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="4/17"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_3_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="多云"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_3_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:text="20° ~ 25°"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <View
+                    android:id="@+id/indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="3dp" />
+
+                <TextView
+                    android:id="@+id/tv_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/indicator"
+                    android:gravity="end|bottom"
+                    android:text="20"
+                    android:textColor="#fff"
+                    android:textSize="60sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/indicator_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/indicator"
+                    android:gravity="end"
+                    android:text="°"
+                    android:textColor="#fff"
+                    android:textSize="30sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/tv_cityname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/indicator_1"
+                    android:layout_toRightOf="@id/indicator"
+                    android:gravity="end"
+                    android:text="南岸·晴"
+                    android:textColor="#fff"
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
+
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/tv_motto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:imeOptions="actionDone"
+                android:maxLength="40"
+                android:maxLines="4"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="center"
+                android:background="@null"
+                android:text="@string/share_pager_1_tv"
+                android:textColor="#fbf006"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="2019/4/16"
+                    android:textColor="#0097ca"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

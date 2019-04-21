@@ -32,7 +32,7 @@
 
     </RelativeLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_frg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -44,7 +44,7 @@
             android:divider="@color/colorPrimary"
             android:dividerHeight="1dp"
             android:scrollbars="none" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

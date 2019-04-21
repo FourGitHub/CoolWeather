@@ -3,7 +3,6 @@ package com.fourweather.learn.View;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.fourweather.learn.R;
-
-
 import com.fourweather.learn.entity.MovieEntity;
 import com.fourweather.learn.utils.DensityUtil;
 import com.fourweather.learn.utils.HttpMovieService;
 import com.fourweather.learn.utils.ToastUtil;
 
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -81,7 +80,7 @@ public class RxActivity extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-                ToastUtil.showToast(RxActivity.this, "成功获取Top,i=" + i++, Toast.LENGTH_SHORT);
+                ToastUtil.showToast(APP.getContext(), "成功获取Top,i=" + i++, Toast.LENGTH_SHORT);
 
             }
         };

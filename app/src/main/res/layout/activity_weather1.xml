@@ -14,6 +14,16 @@
         android:id="@+id/indicator_3"
         layout="@layout/title_1" />
 
+    <ImageView
+        android:id="@+id/img_loading_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/indicator_3"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_loading_1"
+        android:visibility="gone"
+        android:layout_marginTop="30dp"/>
+
     <LinearLayout
         android:id="@+id/dot_layout"
         android:layout_width="wrap_content"
@@ -23,24 +33,24 @@
         android:paddingTop="10dp"
         android:paddingLeft="15dp"/>
 
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/dot_layout">
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/weather_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <fragment
             android:id="@+id/choose_area_fragment"
-            android:name="com.fourweather.learn.View.ChooseAreaFragment"
+            android:name="com.fourweather.learn.View.ChooseAreaFrag"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start" />
 
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>

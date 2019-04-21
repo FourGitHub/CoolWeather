@@ -16,6 +16,13 @@
     <style name="StartTheme" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@drawable/win_bg</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="SearchTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@drawable/place_holder</item>
         <item name="android:windowFullscreen">true</item>
     </style>

@@ -6,11 +6,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,7 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.fourweather.learn.R;
 import com.fourweather.learn.customView.SunriseView;
-import com.fourweather.learn.entity.BiYing;
+import com.fourweather.learn.entity.BiYingEntity;
 import com.fourweather.learn.entity.CityWeaInfo;
 import com.fourweather.learn.entity.WeatherEntity;
 import com.fourweather.learn.service.AutoUpdateService;
@@ -40,6 +35,11 @@ import com.google.gson.Gson;
 import java.util.Calendar;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -263,7 +263,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void failed(String msg) {
-        ToastUtil.showToast(getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        ToastUtil.showToast(APP.getContext(), msg, Toast.LENGTH_SHORT);
         swipeRefresh.setRefreshing(false);
     }
 
@@ -297,7 +297,7 @@ public class WeatherActivity extends AppCompatActivity {
                 public void onResponse(final String response) {
                     // 接口只返回了后面的路径、前面的协议和主机需要加上去组合成一个完整的Url
                     String bingPicUr = "http://cn.bing.com" + new Gson()
-                            .fromJson(response, BiYing.class).getImages().get(0).getUrl();
+                            .fromJson(response, BiYingEntity.class).getImages().get(0).getUrl();
                     // 请求成功，则把图片链接保存起来，备用
                     SharedPreferences.Editor editor = PreferenceManager
                             .getDefaultSharedPreferences(WeatherActivity.this).edit();
@@ -586,7 +586,7 @@ public class WeatherActivity extends AppCompatActivity {
             popupWindow.dismiss();
         });
         tvCitySearch.setOnClickListener(v -> {
-            startActivityForResult(new Intent(WeatherActivity.this, SearchActivity.class),REQUEST_CODE);
+            startActivityForResult(new Intent(WeatherActivity.this, SearchLocActivity.class),REQUEST_CODE);
             popupWindow.dismiss();
         });
     }

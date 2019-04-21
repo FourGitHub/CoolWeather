@@ -27,9 +27,9 @@
         android:gravity="center"
         android:textColor="#fff"/>
 
-    <!--显示当前最高温度-->
+    <!--显示当前最低温度-->
     <TextView
-        android:id="@+id/max_text"
+        android:id="@+id/min_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,9 +38,19 @@
         android:textSize="16sp"
         android:textColor="#fff"/>
 
-    <!--显示当前最低温度-->
     <TextView
-        android:id="@+id/min_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:gravity="right"
+        android:textSize="16sp"
+        android:text="~"
+        android:textColor="#fff"/>
+
+    <!--显示当前最高温度-->
+    <TextView
+        android:id="@+id/max_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

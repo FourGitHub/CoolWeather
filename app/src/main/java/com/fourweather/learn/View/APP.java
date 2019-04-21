@@ -28,6 +28,7 @@ public class APP extends Application {
         // 为了练习，同一个项目中使用了两个开源的数据库框架
         initLitePal();
         initGreenDao();
+
     }
 
     private void initLitePal(){

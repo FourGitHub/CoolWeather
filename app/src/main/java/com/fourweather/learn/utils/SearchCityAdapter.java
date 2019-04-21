@@ -1,17 +1,18 @@
 package com.fourweather.learn.utils;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fourweather.learn.R;
-import com.fourweather.learn.View.SearchActivity;
+import com.fourweather.learn.View.SearchLocActivity;
 import com.fourweather.learn.entity.SearchedCities;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Create on 2019/01/23
@@ -22,9 +23,9 @@ import java.util.List;
 public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.ViewHolder> {
 
     List<SearchedCities.HeWeather6Bean.BasicBean> mCities;
-    private SearchActivity mContext;
+    private SearchLocActivity mContext;
 
-    public SearchCityAdapter(SearchActivity context) {
+    public SearchCityAdapter(SearchLocActivity context) {
         mContext = context;
     }
 

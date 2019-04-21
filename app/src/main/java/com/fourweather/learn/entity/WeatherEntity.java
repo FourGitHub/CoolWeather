@@ -8,7 +8,7 @@ import java.util.List;
  * Create on 2019/01/25
  *
  * @author Four
- * @description
+ * @description 某个城市的天气信息json
  */
 public class WeatherEntity extends LitePalSupport {
 

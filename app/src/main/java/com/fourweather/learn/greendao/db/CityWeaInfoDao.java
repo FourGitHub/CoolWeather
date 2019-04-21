@@ -24,7 +24,7 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
+        public final static Property Pos = new Property(0, Long.class, "pos", true, "_id");
         public final static Property Cid = new Property(1, String.class, "cid", false, "CID");
         public final static Property JsonString = new Property(2, String.class, "jsonString", false, "JSON_STRING");
     }
@@ -42,7 +42,7 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"CITY_WEA_INFO\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY ," + // 0: pos
                 "\"CID\" TEXT UNIQUE ," + // 1: cid
                 "\"JSON_STRING\" TEXT);"); // 2: jsonString
     }
@@ -57,9 +57,9 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
     protected final void bindValues(DatabaseStatement stmt, CityWeaInfo entity) {
         stmt.clearBindings();
  
-        Long id = entity.getId();
-        if (id != null) {
-            stmt.bindLong(1, id);
+        Long pos = entity.getPos();
+        if (pos != null) {
+            stmt.bindLong(1, pos);
         }
  
         String cid = entity.getCid();
@@ -77,9 +77,9 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
     protected final void bindValues(SQLiteStatement stmt, CityWeaInfo entity) {
         stmt.clearBindings();
  
-        Long id = entity.getId();
-        if (id != null) {
-            stmt.bindLong(1, id);
+        Long pos = entity.getPos();
+        if (pos != null) {
+            stmt.bindLong(1, pos);
         }
  
         String cid = entity.getCid();
@@ -101,7 +101,7 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
     @Override
     public CityWeaInfo readEntity(Cursor cursor, int offset) {
         CityWeaInfo entity = new CityWeaInfo( //
-            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // pos
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // cid
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // jsonString
         );
@@ -110,21 +110,21 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
      
     @Override
     public void readEntity(Cursor cursor, CityWeaInfo entity, int offset) {
-        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
+        entity.setPos(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setCid(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setJsonString(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
      }
     
     @Override
     protected final Long updateKeyAfterInsert(CityWeaInfo entity, long rowId) {
-        entity.setId(rowId);
+        entity.setPos(rowId);
         return rowId;
     }
     
     @Override
     public Long getKey(CityWeaInfo entity) {
         if(entity != null) {
-            return entity.getId();
+            return entity.getPos();
         } else {
             return null;
         }
@@ -132,7 +132,7 @@ public class CityWeaInfoDao extends AbstractDao<CityWeaInfo, Long> {
 
     @Override
     public boolean hasKey(CityWeaInfo entity) {
-        return entity.getId() != null;
+        return entity.getPos() != null;
     }
 
     @Override

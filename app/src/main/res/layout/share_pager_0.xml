@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_left_pager" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable = "true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="2019/4/16"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:text="20°"
+                android:textColor="#fff"
+                android:textSize="80sp" />
+
+            <TextView
+                android:id="@+id/tv_cityname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:text="南岸区·晴"
+                android:textColor="#fff"
+                android:textSize="24sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+            <EditText
+                android:background = "@null"
+                android:id="@+id/tv_motto"
+                android:maxLength="40"
+                android:maxLines="4"
+                android:imeOptions="actionNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="top|center"
+                android:text="@string/share_pager_0_tv"
+                android:textColor="#fbf006"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Four 天气"
+                android:textColor="#111"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -2,14 +2,15 @@
 <!--配置LitePal-->
 <litepal>
 
-    <dbname value="cool_weather"/>
+    <dbname value="four_weather"/>
 
-    <version value="5"/>
+    <version value="7"/>
 
     <list>
         <mapping class="com.fourweather.learn.entity.Province"/>
         <mapping class="com.fourweather.learn.entity.City"/>
         <mapping class="com.fourweather.learn.entity.County"/>
+        <mapping class="com.fourweather.learn.entity.CityWeaInfo" />
     </list>
 
 </litepal>

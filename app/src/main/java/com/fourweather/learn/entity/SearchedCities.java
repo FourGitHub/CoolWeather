@@ -6,7 +6,7 @@ import java.util.List;
  * Create on 2019/01/23
  *
  * @author Four
- * @description
+ * @description 模糊搜索返回的json
  */
 public class SearchedCities {
 

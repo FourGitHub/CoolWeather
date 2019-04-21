@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/clothes_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,9 +55,9 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/air_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -98,9 +98,9 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/uv_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -141,9 +141,9 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/sports_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -195,7 +195,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/car_wash_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -236,9 +236,9 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/flu_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -279,9 +279,9 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/comf_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -324,10 +324,10 @@
             </LinearLayout>
 
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/travel_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -368,7 +368,7 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.fourweather.learn.View.APP;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,6 +24,11 @@ public class HttpUtil {
      * @param listener 自定义的回调接口，用于向主线程返回请求结果
      */
     public static void sendHttpUrlConnectionResquest(final String address, final HttpCallbackListener listener) {
+
+        if (!HttpUtil.isNetworkEnable(APP.getContext())) {
+           listener.onFailure(new Exception("Network state Exception"));
+            return;
+        }
         new Thread(() -> {
             HttpURLConnection connection = null;
             InputStream is = null;
@@ -79,9 +87,17 @@ public class HttpUtil {
      * @return 发起网络请求之前检查网络状态是否可用
      */
     public static boolean isNetworkEnable(Context context) {
-        ConnectivityManager manager = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isAvailable();
+        boolean isNetworkEnable = false;
+        int checkTimes = 5;
+        ConnectivityManager manager = null;
+        while (checkTimes-- > 0 && manager == null) {
+            manager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+        }
+        if (manager != null) {
+            NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+            isNetworkEnable = networkInfo != null && networkInfo.isAvailable();
+        }
+        return isNetworkEnable;
     }
 }
