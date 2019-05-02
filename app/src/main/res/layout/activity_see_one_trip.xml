@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".View.ScheduleManageActivity">
+
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_schedule_bg" />
+
+    <LinearLayout
+        android:id="@+id/liner_trip_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_indicate"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_schedule_title_bg">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:padding="15dp"
+                android:src="@drawable/toolbar_back" />
+
+            <EditText
+                android:id="@+id/tv_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLength="9"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="行程主题"
+                android:textColor="#d6204b"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tv_save"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:text="保存"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:gravity="center"-->
+        <!--android:text="主题"-->
+        <!--android:textColor="#059500"-->
+        <!--android:textSize="20sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_theme"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@null"-->
+        <!--android:gravity="center"-->
+        <!--android:imeOptions="actionDone"-->
+        <!--android:maxLength="18"-->
+        <!--android:maxLines="1"-->
+        <!--android:text="七日游"-->
+        <!--android:textColor="#d6204b"-->
+        <!--android:textCursorDrawable="@drawable/custom_search_cursor_1"-->
+        <!--android:textSize="20sp" />-->
+        <!--</FrameLayout>-->
+
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="#aa059500" />-->
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/tv_note"
+        android:inputType="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/liner_trip_container"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/trip_bg"
+        android:focusable="false"
+        android:gravity="center|left"
+        android:maxLines="5"
+        android:padding="5dp"
+        android:textColor="#666666"
+        android:textSize="16sp"
+        android:visibility="gone" />
+</RelativeLayout>

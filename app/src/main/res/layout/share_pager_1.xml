@@ -219,7 +219,7 @@
                 android:gravity="center"
                 android:background="@null"
                 android:text="@string/share_pager_1_tv"
-                android:textColor="#fbf006"
+                android:textColor="#0071b0"
                 android:textSize="18sp" />
 
             <RelativeLayout

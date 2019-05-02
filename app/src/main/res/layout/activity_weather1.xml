@@ -14,15 +14,16 @@
         android:id="@+id/indicator_3"
         layout="@layout/title_1" />
 
+
     <ImageView
         android:id="@+id/img_loading_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/indicator_3"
         android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
         android:src="@drawable/ic_loading_1"
-        android:visibility="gone"
-        android:layout_marginTop="30dp"/>
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/dot_layout"
@@ -30,8 +31,9 @@
         android:layout_height="15dp"
         android:layout_below="@id/indicator_3"
         android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:paddingLeft="15dp"/>
+        android:paddingStart="15dp"
+        android:paddingTop="10dp" />
+
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"

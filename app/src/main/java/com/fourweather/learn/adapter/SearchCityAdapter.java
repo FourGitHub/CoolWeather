@@ -1,4 +1,4 @@
-package com.fourweather.learn.utils;
+package com.fourweather.learn.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.ViewHolder> {
 
-    List<SearchedCities.HeWeather6Bean.BasicBean> mCities;
+    protected List<SearchedCities.HeWeather6Bean.BasicBean> mCities;
     private SearchLocActivity mContext;
+
+    protected SearchCityAdapter() {
+    }
 
     public SearchCityAdapter(SearchLocActivity context) {
         mContext = context;
@@ -38,7 +41,7 @@ public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.recycyer_city_list_item, parent, false);
+                .inflate(R.layout.recycyer_city_list_item_search_ac, parent, false);
         return new ViewHolder(view);
     }
 
@@ -59,7 +62,7 @@ public class SearchCityAdapter extends RecyclerView.Adapter<SearchCityAdapter.Vi
         TextView tvCityName;
         View item;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             item = itemView;
             tvCityName = itemView.findViewById(R.id.tv_cityname);

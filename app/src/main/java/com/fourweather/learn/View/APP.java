@@ -25,7 +25,7 @@ public class APP extends Application {
         super.onCreate();
         mContext = getApplicationContext();
 
-        // 为了练习，同一个项目中使用了两个开源的数据库框架
+        // 项目设计了两套数据库方案
         initLitePal();
         initGreenDao();
 

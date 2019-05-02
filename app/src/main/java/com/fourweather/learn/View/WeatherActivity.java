@@ -567,7 +567,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private void showPopWindow() {
         View view = LayoutInflater.from(this).inflate(R.layout.custom_pop_window, null);
-        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
+//        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
         TextView tvCitySearch = view.findViewById(R.id.tv_city_search);
         TextView tvCityManage = view.findViewById(R.id.tv_city_manage);
         TextView tvWeatherShare = view.findViewById(R.id.tv_weather_share);
@@ -581,10 +581,10 @@ public class WeatherActivity extends AppCompatActivity {
         popupWindow.setAnimationStyle(R.style.animPopWin);
         popupWindow.showAsDropDown(navButton, -DensityUtil.dip2px(this, 105),0);
 
-        tvFastCheckout.setOnClickListener(v -> {
-            drawerLayout.openDrawer(Gravity.LEFT);
-            popupWindow.dismiss();
-        });
+//        tvFastCheckout.setOnClickListener(v -> {
+//            drawerLayout.openDrawer(Gravity.LEFT);
+//            popupWindow.dismiss();
+//        });
         tvCitySearch.setOnClickListener(v -> {
             startActivityForResult(new Intent(WeatherActivity.this, SearchLocActivity.class),REQUEST_CODE);
             popupWindow.dismiss();

@@ -1,4 +1,4 @@
-package com.fourweather.learn.utils;
+package com.fourweather.learn.adapter;
 
 import com.fourweather.learn.View.PagerFrag;
 

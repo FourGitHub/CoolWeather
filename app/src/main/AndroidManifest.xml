@@ -22,6 +22,14 @@
         android:theme="@style/StartTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
+        <receiver
+            android:name=".utils.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.fourweather.learn.TRIP_ADVANCE_NOTIFY"/>
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -70,6 +78,24 @@
             android:theme="@style/AppTheme"
             tools:targetApi="n" />
         <activity
+            android:name=".View.ScheduleActivity"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            tools:targetApi="n" />
+        <activity
+            android:name=".View.SeeOneTripActivity"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            tools:targetApi="n" />
+        <activity
+            android:name=".View.ScheduleManageActivity"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            tools:targetApi="n" />
+        <activity
             android:name=".View.WeatherActivity1"
             android:launchMode="singleTask"
             android:resizeableActivity="false"
@@ -81,7 +107,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.BaseLocActivity" />
     </application>
 
 </manifest>

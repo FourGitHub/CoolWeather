@@ -1,4 +1,4 @@
-package com.fourweather.learn.utils;
+package com.fourweather.learn.adapter;
 
 import android.util.Log;
 import android.view.ViewGroup;

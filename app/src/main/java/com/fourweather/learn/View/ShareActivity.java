@@ -16,7 +16,7 @@ import com.fourweather.learn.R;
 import com.fourweather.learn.entity.CityWeaInfo;
 import com.fourweather.learn.utils.DensityUtil;
 import com.fourweather.learn.utils.SharePageTransformer;
-import com.fourweather.learn.utils.SharePagerAdapter;
+import com.fourweather.learn.adapter.SharePagerAdapter;
 import com.fourweather.learn.utils.ToastUtil;
 
 import org.litepal.LitePal;

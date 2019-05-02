@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.fourweather.learn.R;
 import com.fourweather.learn.entity.SearchedCities;
 import com.fourweather.learn.utils.HttpSearchCity;
-import com.fourweather.learn.utils.SearchCityAdapter;
+import com.fourweather.learn.adapter.SearchCityAdapter;
 import com.fourweather.learn.utils.ToastUtil;
 
 import java.util.List;

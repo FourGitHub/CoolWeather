@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_point"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_point_0" />
+
+        <TextView
+            android:id="@+id/tv_city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="南岸 重庆"
+            android:textColor="#059500"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_v_line"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="9dp"
+            android:background="@drawable/line_0_1" />
+
+
+        <TextView
+            android:id="@+id/tv_city_info"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:orientation="vertical"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:text="小雨    16 ~ 26 ℃
+小雨    16 ~ 26 ℃
+小雨    16 ~ 26 ℃"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </LinearLayout>
+</LinearLayout>
+

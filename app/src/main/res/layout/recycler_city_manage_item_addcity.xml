@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_toLeftOf="@id/indicator"
-        android:src="@drawable/ic_add_city" />
+        android:src="@drawable/ic_add_city_1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,6 +26,6 @@
         android:layout_centerInParent="true"
         android:layout_toRightOf="@id/indicator"
         android:text="添加"
-        android:textColor="#bfbfbf"
+        android:textColor="#50713d"
         android:textSize="20dp" />
 </RelativeLayout>

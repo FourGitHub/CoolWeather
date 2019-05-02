@@ -13,6 +13,11 @@
         <item name="android:windowExitAnimation">@anim/pop_out</item>
     </style>
 
+    <style name="searchCityAnimPopWin">
+        <item name="android:windowEnterAnimation">@anim/search_city_pop_enter</item>
+        <item name="android:windowExitAnimation">@anim/search_city_pop_out</item>
+    </style>
+
     <style name="StartTheme" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>

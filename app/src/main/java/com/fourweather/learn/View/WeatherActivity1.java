@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -31,7 +32,7 @@ import com.fourweather.learn.utils.HttpSearchCity;
 import com.fourweather.learn.utils.HttpUtil;
 import com.fourweather.learn.utils.HttpWeatherEntity;
 import com.fourweather.learn.utils.ToastUtil;
-import com.fourweather.learn.utils.WeaPagerAdapter;
+import com.fourweather.learn.adapter.WeaPagerAdapter;
 import com.fourweather.learn.utils.WeatherHandler;
 import com.google.gson.Gson;
 
@@ -77,11 +78,13 @@ public class WeatherActivity1 extends BaseLocActivity {
     @BindView(R.id.img_loading_city)
     ImageView imgLoadingCity;
 
+
     PopupWindow popupWindow;
 
     private static final int SEARCH_ACTIVITY_REQUEST_CODE = 1;
     private static final int MANAGE_ACTIVITY_REQUEST_CODE = 2;
     private static final int MAX_WEA_FRG_COUNT = 15;
+
     private List<WeatherFrag> mWeatherFragList = new ArrayList<>();
     private List<String> mCidList = new ArrayList<>();
     private WeaPagerAdapter mAdapter = null;
@@ -113,6 +116,7 @@ public class WeatherActivity1 extends BaseLocActivity {
         if (checkoutGPSLicence()) {
             requestGPSLicence();
         }
+        TimePicker timePicker = new TimePicker(this);
         loadBingPic();
         initPopupWindow();
         setupWeatherFragmentList();
@@ -186,6 +190,10 @@ public class WeatherActivity1 extends BaseLocActivity {
         if (drawerLayout != null && drawerLayout.isAttachedToWindow()) {
             drawerLayout.closeDrawers();
         }
+
+        if (popupWindow != null && popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        }
     }
 
     @Override
@@ -249,10 +257,11 @@ public class WeatherActivity1 extends BaseLocActivity {
     private void initPopupWindow() {
         /* 加载布局 */
         View view = LayoutInflater.from(this).inflate(R.layout.custom_pop_window, null);
-        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
+//        TextView tvFastCheckout = view.findViewById(R.id.tv_fast_checkout);
         TextView tvCitySearch = view.findViewById(R.id.tv_city_search);
         TextView tvCityManage = view.findViewById(R.id.tv_city_manage);
         TextView tvWeatherShare = view.findViewById(R.id.tv_weather_share);
+        TextView tvSechedule = view.findViewById(R.id.tv_sechedule_manage);
 
         /* 构造PopupWindow */
         popupWindow = new PopupWindow();
@@ -266,22 +275,16 @@ public class WeatherActivity1 extends BaseLocActivity {
         popupWindow.setFocusable(true);
         popupWindow.setTouchable(true);
         popupWindow.setAnimationStyle(R.style.animPopWin);
-        tvFastCheckout.setOnClickListener(v -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            popupWindow.dismiss();
-        });
 
         tvCitySearch.setOnClickListener(v -> {
 
             Intent intent = new Intent(WeatherActivity1.this, SearchLocActivity.class);
             intent.putExtra("parentAcIsWeatherAc", true);
             startActivityForResult(intent, SEARCH_ACTIVITY_REQUEST_CODE);
-            popupWindow.dismiss();
         });
 
         tvCityManage.setOnClickListener(v -> {
             startActivityForResult(new Intent(WeatherActivity1.this, CityManageActivity.class), MANAGE_ACTIVITY_REQUEST_CODE);
-            popupWindow.dismiss();
         });
 
         tvWeatherShare.setOnClickListener(v -> {
@@ -291,8 +294,11 @@ public class WeatherActivity1 extends BaseLocActivity {
             Intent intent = new Intent(WeatherActivity1.this, ShareActivity.class);
             intent.putExtra(ShareActivity.SHARE_CID, mCidList.get(curFrgPos));
             startActivity(intent);
-            popupWindow.dismiss();
+        });
 
+        tvSechedule.setOnClickListener(v->{
+            Intent intent = new Intent(WeatherActivity1.this, ScheduleActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -435,7 +441,6 @@ public class WeatherActivity1 extends BaseLocActivity {
                     imgLoadingCity.setVisibility(View.GONE);
                     if (weatherEntity.getHeWeather6().get(0).getStatus().toLowerCase().equals("ok")) {
 
-
                         // 用返回的WeatherEntity,取出cid,两者再包装一个CityWeaInfo对象添加到数据库
                         Gson gson = new Gson();
                         String weatherInfoJSON = gson.toJson(weatherEntity);
@@ -460,7 +465,6 @@ public class WeatherActivity1 extends BaseLocActivity {
                             cityWeaInfo.setPos((long) 0);
                             cityWeaInfo.saveOrUpdate("cid like ?", cid);
                             reInitWeaFrgPager();
-                            refreshIndicator();
                         } else {
                             // 否则，说明是用户新增关注了已管理城市之外的其他城市，这时候，放到最后一个展示页即可
                             curFrgPos = mWeatherFragList.size();
@@ -558,6 +562,7 @@ public class WeatherActivity1 extends BaseLocActivity {
         setupWeatherFragmentList();
         mAdapter.notifyDataSetChanged();
         weatherPager.setCurrentItem(curFrgPos);
+        refreshIndicator();
     }
 
 

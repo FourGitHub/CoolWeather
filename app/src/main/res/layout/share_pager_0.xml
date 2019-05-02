@@ -73,7 +73,7 @@
                 android:layout_marginRight="40dp"
                 android:gravity="top|center"
                 android:text="@string/share_pager_0_tv"
-                android:textColor="#fbf006"
+                android:textColor="#0071b0"
                 android:textSize="18sp" />
 
             <TextView

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:id="@+id/swipe_refresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,19 +18,44 @@
             android:fitsSystemWindows="true"
             android:orientation="vertical">
 
-            <View
+            <RelativeLayout
+                android:id="@+id/bobao"
                 android:layout_width="match_parent"
-                android:layout_height="185dp"/>
+                android:layout_height="185dp"
+                android:layout_below="@id/dot_layout">
 
-            <include layout="@layout/now_1"/>
+                <ImageView
+                    android:id="@+id/img_laba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_laba" />
 
-            <include layout="@layout/hourly"/>
+                <com.fourweather.learn.customView.ScrollerTextView
+                    android:id="@+id/tv_bobao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@id/img_laba"
+                    android:textColor="#ffd748" />
+            </RelativeLayout>
 
-            <include layout="@layout/sun_moon_animation"/>
+            <include layout="@layout/now_1" />
 
-            <include layout="@layout/forecast"/>
+            <include layout="@layout/hourly" />
 
-            <include layout="@layout/lifestyle_1"/>
+            <include layout="@layout/sun_moon_animation" />
+
+            <include layout="@layout/forecast" />
+
+            <include layout="@layout/lifestyle_1" />
 
         </LinearLayout>
 

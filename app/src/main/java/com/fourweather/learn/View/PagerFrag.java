@@ -2,7 +2,6 @@ package com.fourweather.learn.View;
 
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 
 import com.fourweather.learn.entity.CityWeaInfo;
@@ -12,7 +11,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.concurrent.Callable;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;

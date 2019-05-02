@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import com.fourweather.learn.R;
 import com.fourweather.learn.entity.CityWeaInfo;
 import com.fourweather.learn.entity.WeatherEntity;
-import com.fourweather.learn.utils.CityManageAdapter;
+import com.fourweather.learn.adapter.CityManageAdapter;
 import com.google.gson.Gson;
 
 import org.litepal.LitePal;
@@ -174,7 +174,6 @@ public class CityManageActivity extends AppCompatActivity {
 
 
         });
-
         mItemTouchHelper.attachToRecyclerView(recyclerCityManage);
         mAdapter.setItemTouchHelper(mItemTouchHelper);
     }

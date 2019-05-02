@@ -1,5 +1,6 @@
 package com.fourweather.learn.View;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +8,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourweather.learn.R;
+import com.fourweather.learn.customView.ScrollerTextView;
 import com.fourweather.learn.customView.SunriseView;
 import com.fourweather.learn.entity.CityWeaInfo;
 import com.fourweather.learn.entity.WeatherEntity;
@@ -108,6 +114,10 @@ public class WeatherFrag extends Fragment {
     TextView travelText;
     @BindView(R.id.hourly_layout)
     LinearLayout hourlyLayout;
+    @BindView(R.id.tv_bobao)
+    ScrollerTextView tvBobao;
+    @BindView(R.id.bobao)
+    RelativeLayout bobao;
 
     private static final String TAG = "WeatherFrag";
     private static final String FRG_POS = "frg_pos";
@@ -141,7 +151,8 @@ public class WeatherFrag extends Fragment {
             mPosition = getArguments().getInt(FRG_POS);
         }
         mContext = APP.getContext();
-        lastUpdateTime = System.currentTimeMillis();
+        // 减去半个小时是为了Create后，被选中即更新一次
+        lastUpdateTime = System.currentTimeMillis() - HALF_HOUR;
         Log.i(TAG, "onCreate: --->> mWeaEntity = " + mWeaEntity);
     }
 
@@ -160,21 +171,14 @@ public class WeatherFrag extends Fragment {
             mCid = mWeaEntity.getHeWeather6().get(0).getBasic().getCid();
             setFrgUI(mWeaEntity.getHeWeather6().get(0));
         }
-        Log.i(TAG, "onCreateView: --->> mWeaEntity = " + mWeaEntity);
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        // 这里更新 mContext 是因为...ShowLifestyleActivity.sendInfo(...)
         mContext = getContext();
-        Log.i(TAG, "onActivityCreated: --->> mWeaEntity = " + mWeaEntity);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart: --->> mWeaEntity = " + mWeaEntity);
     }
 
     @Override
@@ -215,7 +219,6 @@ public class WeatherFrag extends Fragment {
                         String weatherInfoJSON = gson.toJson(weatherEntity);
                         mWeaEntity = weatherEntity;
                         mCid = weatherEntity.getHeWeather6().get(0).getBasic().getCid();
-
 
                         /*
                         2、更新视图，NOTE: 现在Adapter显示的仍然是这个实例,FragmentStatePagerAdapter会在碎片
@@ -326,6 +329,7 @@ public class WeatherFrag extends Fragment {
 
         hourlyLayout.removeAllViews();
         popText.setText(String.format("降水概率: %s%%", weather.getHourly().get(0).getPop()));
+
         for (WeatherEntity.HeWeather6Bean.HourlyBean hourly : weather.getHourly()) {
             View view = getLayoutInflater().inflate(R.layout.hourly_item, forecastLayout, false);
             TextView hourlyTimeText = view.findViewById(R.id.hourly_time_text);
@@ -384,6 +388,9 @@ public class WeatherFrag extends Fragment {
                     });
                     break;
                 case "uv":
+//                    tvBobao.setText(lifestyle.getTxt());
+                    tvBobao.initScrollTextView((WindowManager) APP.getContext().getSystemService(Context.WINDOW_SERVICE), lifestyle.getTxt(), 3F);
+                    tvBobao.starScroll();
                     uvText.setText(lifestyle.getBrf());
                     uvIamge.setOnClickListener(v -> {
                         Intent intent = ShowLifestyleActivity.sendInfo(mContext, MatchImageUtil.matchImage("uv"), "紫外线强度", lifestyle.getBrf(), lifestyle.getTxt());

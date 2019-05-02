@@ -1,4 +1,4 @@
-package com.fourweather.learn.utils;
+package com.fourweather.learn.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

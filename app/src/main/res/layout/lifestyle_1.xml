@@ -146,7 +146,6 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/sports_layout"
-        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         app:cardBackgroundColor="#8000"
         app:cardCornerRadius="5dp"
@@ -328,7 +327,6 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/travel_layout"
-        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         app:cardBackgroundColor="#8000"
         app:cardCornerRadius="5dp"
